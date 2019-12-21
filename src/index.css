@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.canvas {
+  width: 700px;
+  height: 140px;
+  border: 1px solid gray;
+}
+
+.line {
+  display: flex;
+}
+
+.block {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+}
+
+.wrapper {
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+}
+
+.block_color {
+  background-color: #82b92c;
+}
