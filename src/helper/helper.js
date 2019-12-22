@@ -5,42 +5,42 @@ class Helper {
     return data;
   }
 
-  checkValueAndInsert = item => {
+  checkValue = item => {
     if (item === 1) {
       const strToDecode = "&times;";
       const parser = new DOMParser();
-      return parser.parseFromString(`<!doctype html><body>${strToDecode}`, "text/html").body.textContent;
+      return parser.parseFromString(`<!doctype html><body>${strToDecode}`, 'text/html').body.textContent;
     } else {
       return;
     }
   }
 
-  showLine(data) {
-    const { line } = data;
+  showLine() {
+    const { line } = require("../data/data.json");
     this.setState({
       data: line,
       color: false
     });
   }
 
-  showLineSecond(data) {
-    const { line_second } = data;
+  showLineSecond() {
+    const { line_second } = require("../data/data.json");
     this.setState({
       data: line_second,
       color: false
     });
   }
 
-  showRectangle(data) {
-    const { rectangle } = data;
+  showRectangle() {
+    const { rectangle } = require("../data/data.json");
     this.setState({
       data: rectangle,
       color: false
     });
   }
 
-  colorFill(data) {
-    const { bucket_fill } = data;
+  colorFill() {
+    const { bucket_fill } = require("../data/data.json");
     this.setState({
       data: bucket_fill,
       color: true
@@ -50,7 +50,7 @@ class Helper {
   addClass(color, item) {
     if (!color) return "block"
 
-    if (color && !item) {
+    if (color && item === 0) {
       return "block block_color"
     } else {
       return "block"
@@ -58,8 +58,8 @@ class Helper {
   }
 
   removeClass() {
-    const list = [...document.getElementsByClassName("block")];
-    if (list.length) {
+    let list = [...document.getElementsByClassName("block")];
+    if (list.length != 0) {
       list.forEach(item => {
         if (item.classList.indexOF("block_color") > 0) {
           item.classList.remove("block_color");
